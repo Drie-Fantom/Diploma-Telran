@@ -3,7 +3,87 @@ body {
   font-family: sans-serif;
 }
 
-body.dark {
-  background: #222;
-  color: #eee;
+body.dark { background: #222; color: #eee; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer {
+  padding: 0 40px;
+  color: #424436;
+  background: #FFFFF1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.phone,
+.socials,
+.hours,
+.address {
+  background-color: #F2F6D3;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.contact-label {
+  font-size: 20px;
+  color: #8B8B8B;
+  padding-bottom: 16px;
+}
+
+.phone a {
+  display: block;
+  font-weight: 600;
+  color: #424436;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.address p:nth-child(2),
+.hours p:nth-child(2) {
+  color: #424436;
+  font-size: 40px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.map-container { margin-top: 32px; }
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 16px;
+}
+
+.section-title { 
+  font-size: 64px; 
+  color: #424436;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 16px; }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .phone a,
+  .address p:nth-child(2),
+  .hours p:nth-child(2) { font-size: 28px; }
 }
