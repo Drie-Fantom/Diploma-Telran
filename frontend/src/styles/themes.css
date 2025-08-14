@@ -1,11 +1,21 @@
-/* Theme placeholders */
-
+/* LIGHT по умолчанию */
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+  --bg: #FFFFF1;
+  --text: #282828;
+  --header-bg: #FFFFF1;  /* фон шапки в light */
+  --link: #424436;       /* ссылки/текст в light */
+  --icon-filter: none;   /* фильтр иконок в light */
+
+  --font-family: "Montserrat", sans-serif;
+  --transition-fast: .3s;
 }
 
-.dark {
-  --bg-color: #000000;
-  --text-color: #ffffff;
+/* DARK переопределения при наличии класса body.dark */
+body.dark {
+  --bg: #424436;
+  --text: #f0f0f0;
+  --header-bg: #424436;  /* фон шапки в dark */
+  --link: #f0f0f0;
+  --icon-filter: invert(1);
 }
+

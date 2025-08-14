@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.hero {
+  background: url("../../../assets/imgs/banner.svg") center/cover no-repeat;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero .container {
+  padding-top: 80px;
+  padding-bottom: 310px;
+  padding-left: 40px;
+}
+
+.hero-text {
+  color: #FFFFFF;
+  font-weight: 700;
+  height: 212px;
+}
+
+body.dark-theme .hero-text {
+  background: rgba(0, 0, 0, .45);
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 96px;
+  line-height: 1.2;
+}
+
+.btn-checkout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 218px;
+  height: 58px;
+  background: #92A134;
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+  padding: 16px 56px;
+  border-radius: 6px;
+  margin-top: 40px;
+}
+
+.btn-checkout__text {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  /* избегаем «прыжков» по высоте */
+}
+
+/* Hover/Active/Focus состояния */
+.btn-checkout:hover {
+  filter: brightness(0.9);
+}
+
+.btn-checkout:active {
+  transform: translateY(1px);
+}
+
+.btn-checkout:focus-visible {
+  /* доступный, но ненавязчивый фокус вместо «чёрной полоски» */
+  box-shadow: 0 0 0 3px rgba(146, 161, 52, 0.35);
+  outline: none;
+}
+
+/* ===== Адаптив ===== */
+
+@media (max-width: 1000px) {
+  .hero-text h1 { font-size: 34px; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 320px; }
+  .hero-text { max-width: 560px; }
+  .hero-text h1 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero { min-height: 280px; }
+  .hero-text { padding: 16px; }
+  .hero-text h1 { font-size: 24px; }
+}
+
+@media (max-width: 360px) {
+  .hero { min-height: 240px; }
+  .hero-text h1 { font-size: 20px; }
+}

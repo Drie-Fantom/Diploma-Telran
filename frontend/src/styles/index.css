@@ -1,9 +1,10 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-family: 'Montserrat', sans-serif; }
 
-body.dark {
-  background: #222;
-  color: #eee;
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
