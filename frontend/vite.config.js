@@ -10,7 +10,8 @@ export default defineConfig({
       '@api': path.resolve(__dirname, './src/api'),
       '@redux': path.resolve(__dirname, './src/redux'),
       '@features': path.resolve(__dirname, './src/features'),
-      '@common': path.resolve(__dirname, './src/common')
+      '@common': path.resolve(__dirname, './src/common'),
+      '@styles': path.resolve(__dirname, './src/styles'),
     }
   },
   server: {
