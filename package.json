@@ -13,10 +13,10 @@
     "build": "npm --prefix frontend run build"
   },
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "sass": "^1.90.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "sass": "^1.90.0"
+    "normalize.css": "^8.0.1"
   }
 }
