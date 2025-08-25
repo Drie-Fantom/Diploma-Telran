@@ -1,7 +1,9 @@
 import React from 'react';
 import ProductOfDayModal from '../components/ProductOfDayModal.jsx';
+import CategoriesList from '../components/CategoriesList';
 import styles from './HomePage.module.css';
 import DiscountBlock from '../components/DiscountForm/DiscountBlock.jsx';
+import "@styles/categories.css";
 
 export default function HomePage() {
   return (
@@ -23,7 +25,9 @@ export default function HomePage() {
 
       <section className="home">
         <div className="home__container">
+              <ProductOfDayModal />
           <DiscountBlock />
+          <CategoriesList />
         </div>
       </section>
 
