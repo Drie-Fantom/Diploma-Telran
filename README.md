@@ -207,3 +207,10 @@ const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://loca
 
 **Алиасы не работают?**  
 Убедитесь, что используется Vite и не удалён `frontend/vite.config.js` с разделом `resolve.alias`.
+
+## Авторы проекта
+
+1. Иван - team lead
+2. Алекс
+3. Елена Корж
+4. Оля Одарюк
