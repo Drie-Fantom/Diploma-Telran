@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import ProductCard from '../components/ProductCard.jsx';
 import { Loader } from '@common/components';
-import styles from './ProductPage.module.css';
+import styles from './ProductsPage.module.css';
 import PriceRange from '../../filterSort/PriceRange.jsx';
 import DiscountedFilter from '../../filterSort/DiscountedFilter.jsx';
 import SortComponent from '../../filterSort/SortComponent.jsx';
@@ -19,7 +19,7 @@ const ProductsPage = () => {
   const [sort, setSort] = useState('default');
 
   useEffect(() => {
-    dispatch(fetchProducts({ id, ...filters, sort }));
+    dispatch(fetchProducts({categoryId: id, ...filters, sort }));
   }, [dispatch, id, filters, sort]);
 
   if (status === 'loading' && items.length === 0) return <Loader />;

@@ -6,6 +6,7 @@ import ProductsPage from '@features/products/pages/ProductsPage.jsx';
 import ProductDetailsPage from '@features/products/pages/ProductDetailsPage.jsx';
 import CategoriesPage from '@features/categories/pages/CategoriesPage.jsx';
 import SaleSection from '@common/components/layout/SaleSection';
+import FavoritesPage from '@features/favorites/pages/FavoritesPage.jsx';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
       {isHome && <SaleSection />}   
       <Footer />

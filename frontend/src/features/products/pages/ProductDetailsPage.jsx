@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { addFavorite, selectIsFavorite } from '@redux/slices/favoritesSlice.js';
 import { fetchProductById } from '@redux/slices/productSlice.js';
 import { addToCart } from '@redux/slices/cartSlice.js';
 import { Loader } from '@common/components';
@@ -9,12 +10,17 @@ import { formatPrice } from '@common/utils';
 import api from '@api/axios.js';
 import DiscountBadge from '../../discounts/components/DiscountPrice';
 import HeartIcon from '@/assets/icons/heart.svg?react';
+import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { current, status } = useSelector(state => state.products);
+
+  // Определяем, является ли продукт избранным
+  const isFavorite = useSelector(s => selectIsFavorite(s, id));
+  const onToggleFavorite = () => dispatch(addFavorite(id));
 
   const [quantity, setQuantity] = useState(1);
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -45,10 +51,12 @@ const ProductDetailsPage = () => {
     <div className={styles.productDetails}>
       <img src={imageUrl} alt={current.title} className={styles.productImg} />
       <div className={styles.content}>
-        <div className={styles.upperContent}>  
+        <div className={styles.upperContent}>
           <div className={styles.headerRow}>
             <h2 className={styles.title}>{current.title}</h2>
-            <button className={styles.favoriteBtn}><HeartIcon className={styles.icon} /></button>
+            <button className={styles.favoriteBtn} onClick={onToggleFavorite}>
+              {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
+            </button>
           </div>
           <div className={styles.rightColumn}>
             <div className={styles.priceContainer}>
@@ -73,7 +81,7 @@ const ProductDetailsPage = () => {
               <button onClick={handleAddToCart} className={styles.addToCart}>Add to cart</button>
             </div>
           </div>
-        </div>  
+        </div>
         <div className={styles.descriptionBlock}>
           <h3 className={styles.descriptionTitle}>Description</h3>
           <p className={styles.descriptionText}>

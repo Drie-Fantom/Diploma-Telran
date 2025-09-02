@@ -4,7 +4,7 @@ import { fetchProducts } from '@redux/slices/productSlice.js';
 
 import styles from './SaleSection.module.css';
 import Title from '@/common/components/ui/title.jsx';
-import ProductCard from '@/common/components/layout/ProductCardMain';
+import ProductCardMain from '@/common/components/layout/ProductCardMain';
 
 const SaleSection = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const SaleSection = () => {
 
       <div className={styles.saleGrid}>
         {displayed.map(prod => (
-          <ProductCard
+          <ProductCardMain
             key={prod.id}
             id={prod.id}
             title={prod.title}
