@@ -47,10 +47,10 @@ body.dark-theme .hero-text {
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
-  /* избегаем «прыжков» по высоте */
+  
 }
 
-/* Hover/Active/Focus состояния */
+
 .btn-checkout:hover {
   filter: brightness(0.9);
 }

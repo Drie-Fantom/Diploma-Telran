@@ -11,6 +11,8 @@ div.render :global {
 
     & {
         .discount {
+            border-radius: 12px;
+            background:#5D6913;
             padding: 2em;
             margin-top: 80px;
 
@@ -19,15 +21,20 @@ div.render :global {
                 margin-top: 60px;
             }
 
+            
+
             @media (max-width: 480px) {
                 padding: 1.5em 1.25em 0px 1.25em;
                 transform: translate(0px);
                 margin-top: 56px;
             }
 
+            
+
+& {
             border-radius: 12px;
             background:#5D6913;
-
+}
 
 
 
