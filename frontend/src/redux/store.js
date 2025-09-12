@@ -4,6 +4,7 @@ import productReducer from '@redux/slices/productSlice.js';
 import categoryReducer from '@redux/slices/categorySlice.js';
 import cartReducer from '@redux/slices/cartSlice.js';
 import favoritesReducer from '@redux/slices/favoritesSlice.js';
+import productOfDay from '@redux/slices/productOfDaySlice.js';
 
 // safely read favorites from localStorage
 function loadFavorites() {
@@ -29,9 +30,7 @@ const saveFavoritesMw = (storeApi) => (next) => (action) => {
     try {
       const ids = storeApi.getState().favorites.items; // 3) taking the NEW state
       localStorage.setItem('favorites', JSON.stringify(ids)); // 4) save to localStorage
-    } catch {
-      // silently ignore access/quota errors
-    }
+    } catch {} // silently ignore access/quota errors
   }
   return result;
 };
@@ -42,7 +41,8 @@ const store = configureStore({
     products: productReducer,
     categories: categoryReducer,
     cart: cartReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    productOfDay: productOfDay,
   },
   preloadedState: { // initial state for favorites
     favorites: {

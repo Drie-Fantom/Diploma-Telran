@@ -134,6 +134,11 @@
   border-radius: 8px;
   cursor: pointer;
 }
+/* Стили для фокуса на кнопке со скидкой */
+.discount-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
 
 .nav {
   display: none;
@@ -209,9 +214,12 @@
 }
 
 /* ТЕМНАЯ ТЕМА: делаем иконки белыми */
-:global(body.dark) :local(.icon-heart::before),
+:global(body.dark) :local(.icon-heart::before) {
+  background-image: url("../../../assets/icons/favourite_dark.svg");
+}
+
 :global(body.dark) :local(.icon-cart::before) {
-  filter: invert(1);
+  background-image: url("../../../assets/icons/cart_dark.svg");
 }
 
 .icon-burger {

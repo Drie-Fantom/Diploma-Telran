@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './MobileDrawer.module.css';
+import ProductOfDayButton from "@features/home/components/ProductOfDay/ProductOfDayButton.jsx";
 
 export default function MobileDrawer({ open, onClose, links, showDiscount }) {
   // Блокировка скролла фона, когда меню открыто
@@ -36,10 +37,16 @@ export default function MobileDrawer({ open, onClose, links, showDiscount }) {
               {l.label}
             </Link>
           ))}
-           {showDiscount && (
+           {/* {showDiscount && (
           <button type="button" className={styles.discountMobile}>
             1 day discount!
           </button>
+        )} */}
+        {showDiscount && (
+          <ProductOfDayButton
+            className={styles.discountMobile}
+            onClickExtra={onClose}   // Close the drawer when clicking the discount button
+          />
         )}
         </nav>
        

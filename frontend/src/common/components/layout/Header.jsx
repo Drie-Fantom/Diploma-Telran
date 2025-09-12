@@ -9,6 +9,8 @@ import { navLinks } from './headerBurger/navLinks.js';
 import DesktopNav from './headerBurger/DesktopNav.jsx';
 import BurgerButton from './headerBurger/BurgerButton.jsx';
 import MobileDrawer from './headerBurger/MobileDrawer.jsx';
+import ProductOfDayButton from '@features/home/components/ProductOfDay/ProductOfDayButton.jsx';
+
 
 
 export default function Header({ hideSeparator = false }) { // prop to optionally hide the line-border on HomePage
@@ -40,8 +42,15 @@ export default function Header({ hideSeparator = false }) { // prop to optionall
           </button>
         </div>
 
-        <div className={styles['header-center']}>
+        {/* <div className={styles['header-center']}>
           <button className={styles['discount-btn']} type="button">1 day discount!</button>
+          <DesktopNav links={navLinks} />
+          <ProductOfDayButton className="btn-discount" />
+          <ProductOfDayModal />
+        </div> */}
+
+        <div className={styles['header-center']}>
+          <ProductOfDayButton className={styles['discount-btn']} />
           <DesktopNav links={navLinks} />
         </div>
 
