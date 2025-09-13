@@ -9,6 +9,7 @@ import TitleList from '@common/components/ui/title/TitleList.jsx';
 const SaleSection = () => {
   const dispatch = useDispatch();
   const { items } = useSelector(state => state.products);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -16,6 +17,10 @@ const SaleSection = () => {
 
   const discountItems = items.filter(p => p.discont_price && p.discont_price < p.price);
   const displayed = discountItems.slice(4, 8);
+
+  const handleCardClick = (id) => {
+    navigate(`/product/${id}`)
+  }
 
   return (
     <section className={styles.saleSection}>
@@ -30,6 +35,7 @@ const SaleSection = () => {
             price={prod.price}
             discont_price={prod.discont_price}
             image={prod.image}
+            onClick={() => handleCardClick(prod.id)}
           />
         ))}
       </div>

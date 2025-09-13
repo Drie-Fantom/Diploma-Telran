@@ -1,9 +1,9 @@
 import React from 'react';
-
 import InstagramIcon from '../../../assets/icons/instagram.svg?react';
 import WhatsappIcon from '../../../assets/icons/whatsapp.svg?react';
 import styles from './Footer.module.scss';
 import Title from '../ui/title/title';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   const phoneNumber = '+49 999 999 99 99';

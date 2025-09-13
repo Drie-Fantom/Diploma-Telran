@@ -1,0 +1,81 @@
+.checkoutRoot {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+ max-height: 580px;
+ 
+}
+
+.checkoutTitle {
+  color: var(--text-color);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-bottom: 24px;
+}
+
+.checkoutPanel {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  
+}
+
+.checkoutSummary {
+  padding-bottom: 32px;
+}
+
+.checkoutSummary h3 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--label-color);
+}
+
+.checkoutTotals {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  align-self: stretch;
+  gap: 32px;
+}
+
+.checkoutTotals h2 {
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  color: var(--text-color);
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; 
+}
+.checkoutFields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.checkoutFields input {
+  width: 100%; 
+  background-color: var(--footer-bg); 
+  border-radius: 6px; 
+  padding: 16px; 
+  border: 1px solid var(--border-Color); 
+  font-size: 20px; 
+}
+
+.checkoutSubmit {
+  color: white;
+  background-color: #92A134; 
+  font-weight: 600; 
+  font-size: 20px; 
+  line-height: 130%;
+  padding: 16px 32px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  width: 100%; 
+}

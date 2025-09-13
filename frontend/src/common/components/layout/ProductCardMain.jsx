@@ -1,3 +1,6 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@redux/slices/cartSlice.js'; 
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
@@ -26,9 +29,9 @@ const ProductCardMain = ({ id, title, price, discont_price, image }) => {
 
       <button className={styles.addToCart}><CartIcon className={styles.icon} /></button>
 
-      <img src={imgSrc} alt={title} className={styles.productImg} />
+      <img src={imgSrc} alt={title} className={styles.productImg} onClick={onClick} />
 
-      <p className={styles.productName}>{title}</p>
+      <p className={styles.productName} onClick={onClick}>{title}</p> 
 
       <div className={styles.productPrice}>
         <span className={styles.newPrice}>${discont_price || price}</span>
