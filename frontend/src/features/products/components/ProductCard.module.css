@@ -7,6 +7,11 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+}
+
+:global(body.dark) .productCard {
+  background-color: #383A2C;
 }
 
 .productCard a {
@@ -17,6 +22,7 @@
 
 .productCard img {
   flex: 1;
+  border-bottom: 1px solid var(--separator, #DDDDDD);
 }
 
 .priceBlock {
@@ -60,6 +66,26 @@
   border: none;
   background: none;
   cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+/* накладка (зелёная), перекрасим в чёрный фильтром */
+.hover {
+  opacity: 0;
+  filter: grayscale(1) brightness(0);
+  /* зелёную → чёрную */
+}
+
+/* на hover (только если НЕ в корзине) скрыть базовую, показать «чёрную» */
+.addToCartBtn:not(.isActive):hover .base,
+.addToCartBtn:not(.isActive):focus-visible .base {
+  opacity: 0;
+}
+
+.addToCartBtn:not(.isActive):hover .hover,
+.addToCartBtn:not(.isActive):focus-visible .hover {
+  opacity: 1;
 }
 
 .favoriteBtn {
@@ -69,10 +95,33 @@
   cursor: pointer;
   background: none;
   border: none;
+  display: grid;
+  place-items: center;
+}
+
+/* показываем чёрную И ТОЛЬКО когда не активно */
+.favoriteBtn:not(.isActive):hover .base {
+  opacity: 0;
+}
+
+.favoriteBtn:not(.isActive):hover .hover {
+  opacity: 1;
+  filter: grayscale(1) brightness(0);
+}
+
+/* лёгкий отклик */
+.favoriteBtn:hover {
+  transform: scale(1.05);
 }
 
 .icon {
   max-width: 40px;
+}
+
+.hover {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .12s ease;
 }
 
 @media (max-width: 768px) {

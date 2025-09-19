@@ -44,7 +44,6 @@
 
 .productName {
   padding: 20px;
-
   font-size: 20px;
   color: var(--text);
   white-space: nowrap;
@@ -54,7 +53,6 @@
 
 .productImg {
   width: 100%;
-
   object-fit: cover;
 }
 
@@ -66,7 +64,25 @@
   border: none;
   background: none;
   cursor: pointer;
+   display: grid;
+  place-items: center;
 }
+.hover {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .12s ease;
+  filter: grayscale(1) brightness(0);   /* перекрасили зелёную в чёрный */
+}
+
+/* + NEW: показываем чёрную только когда НЕ в корзине и есть hover/focus */
+.addToCart:not(.isActive):hover .base,
+.addToCart:not(.isActive):focus-visible .base { opacity: 0; }
+
+.addToCart:not(.isActive):hover .hover,
+.addToCart:not(.isActive):focus-visible .hover { opacity: 1; }
+
+/* лёгкий отклик */
+.addToCart:hover { transform: scale(1.05); }
 
 .favoriteBtn {
   position: absolute;
@@ -75,7 +91,24 @@
   cursor: pointer;
   background: none;
   border: none;
+  display: grid;
+  place-items: center;
 }
+
+.hover {
+  opacity: 0;
+  filter: grayscale(1) brightness(0); /* делает зелёную чёрной */
+}
+
+/* при hover, только если НЕ избранное: показать накладку, скрыть базу */
+.favoriteBtn:not(.isActive):hover .base,
+.favoriteBtn:not(.isActive):focus-visible .base { opacity: 0; }
+
+.favoriteBtn:not(.isActive):hover .hover,
+.favoriteBtn:not(.isActive):focus-visible .hover { opacity: 1; }
+
+/* по желанию: лёгкий отклик на наведение */
+.favoriteBtn:hover .icon { transform: scale(1.05); }
 
 .icon {
   max-width: 40px;

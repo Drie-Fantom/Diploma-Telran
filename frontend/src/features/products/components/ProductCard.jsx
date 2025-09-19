@@ -11,8 +11,9 @@ import styles from './ProductCard.module.css';
 import HeartIcon from '@/assets/icons/heart.svg?react';
 import HeartIconGreen from '@/assets/icons/heart_green.svg?react';
 import CartIcon from '@/assets/icons/cart.svg?react';
-import CartIconGreen from '@/assets/icons/cart_green.svg?react'; // Убедитесь, что файл существует
+import CartIconGreen from '@/assets/icons/cart_green.svg?react';
 import DiscountBadge from '../../discounts/components/DiscountPrice';
+
 
 
 const ProductCard = ({ product }) => {
@@ -52,19 +53,33 @@ const ProductCard = ({ product }) => {
 
         <button
           type="button"
-          className={styles.favoriteBtn}
+          className={`${styles.favoriteBtn} ${isFavorite ? styles.isActive : ''}`}
           onClick={handleFavorite}
         >
-          {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
+          {isFavorite ? (
+    <HeartIconGreen className={styles.icon} />
+  ) : (
+    <>
+      <HeartIcon className={`${styles.icon} ${styles.base}`} />
+      <HeartIconGreen className={`${styles.icon} ${styles.hover}`} />
+    </>
+  )}
         </button>
 
         <button
-          type="button"
-          className={styles.addToCartBtn}
-          onClick={handleAddToCart}
-        >
-          {isInCart ? <CartIconGreen className={styles.icon} /> : <CartIcon className={styles.icon} />}
-        </button>
+  type="button"
+  className={`${styles.addToCartBtn} ${isInCart ? styles.isActive : ''}`} // (isActive)
+  onClick={handleAddToCart}
+>
+  {isInCart ? (
+    <CartIconGreen className={styles.icon} />
+  ) : (
+    <>
+      <CartIcon className={`${styles.icon} ${styles.base}`} />
+      <CartIconGreen className={`${styles.icon} ${styles.hover}`} /> {}
+    </>
+  )}
+</button>
       </Link>
 
       <div className={styles.priceBlock}>

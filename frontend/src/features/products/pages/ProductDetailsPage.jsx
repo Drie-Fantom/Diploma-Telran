@@ -66,9 +66,20 @@ const ProductDetailsPage = () => {
         <div className={styles.upperContent}>
           <div className={styles.headerRow}>
             <h2 className={styles.title}>{current.title}</h2>
-            <button className={styles.favoriteBtn} onClick={onToggleFavorite}>
-              {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
-            </button>
+            <button
+  type="button"
+  className={`${styles.favoriteBtn} ${isFavorite ? styles.isActive : ''}`}
+  onClick={onToggleFavorite}
+>
+  {isFavorite ? (
+    <HeartIconGreen className={styles.icon} />
+  ) : (
+    <>
+      <HeartIcon className={`${styles.icon} ${styles.base}`} />
+      <HeartIconGreen className={`${styles.icon} ${styles.hover}`} /> {}
+    </>
+  )}
+</button>
           </div>
           <div className={styles.rightColumn}>
             <div className={styles.priceContainer}>
@@ -89,11 +100,11 @@ const ProductDetailsPage = () => {
             <div className={styles.quantityContainer}>
               <div className={styles.blos}>
                 <button onClick={handleDecrement} className={styles.quantityButton}>-</button>
-              <input type="number" value={quantity} readOnly className={styles.quantityInput} />
-              <button onClick={handleIncrement} className={styles.quantityButton}>+</button>
+                <input type="number" value={quantity} readOnly className={styles.quantityInput} />
+                <button onClick={handleIncrement} className={styles.quantityButton}>+</button>
               </div>
-              
-              
+
+
               <button onClick={handleAddToCart} className={styles.addToCart}>Add to cart</button>
             </div>
           </div>
