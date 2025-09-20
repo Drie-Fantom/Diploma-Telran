@@ -1,0 +1,141 @@
+.cartPage {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  padding: 0 40px 20px 40px;
+}
+
+@media (max-width: 1200px) {
+  .cartPage {
+    padding: 0 20px 10px 20px;
+  }
+
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  align-items: flex-start;
+  padding: 40px 40px 0 40px;
+}
+
+.empty {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--text-color);
+  display: flex;
+
+}
+
+.continueBtn {
+  display: flex;
+  padding: 16px 56px;
+  align-items: center;
+  background-color: #92A134;
+  color: #FFFFFF;
+  border-radius: 6px;
+}
+
+@media (max-width: 999px) {
+  .cartPage {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartPage {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .backBtn {
+    font-size: 14px;
+  }
+
+  .cartEmpty {
+    padding: 32px 20px 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartPage {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .cartEmpty {
+    row-gap: 24px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .55);
+  backdrop-filter: blur(2px);      
+  display: grid;
+  place-items: center;             
+  z-index: 999;                   
+  opacity: 0;
+  animation: fadeIn .2s ease forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #92A134; 
+  padding: 32px;
+  border-radius: 12px;
+  width: 548px; 
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.modal h2 {
+  font-size: 40px;
+  color: white;
+}
+
+.modal p {
+  font-size: 20px;
+  color: white;
+ 
+}
+
+.modal button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
