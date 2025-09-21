@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "./imageZoomModal.module.css";
+import styles from "./ImageZoomModal.module.css";
 
 const ImageZoomModal = ({ isOpen, onClose, imageSrc, alt }) => {
     if (!isOpen) return null;
