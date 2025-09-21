@@ -30,13 +30,37 @@ const ProductCardMain = ({ id, title, price, discont_price, image }) => {
     <div className={styles.productCard}>
       <DiscountBadge price={price} discont_price={discont_price} />
 
-      <button className={styles.favoriteBtn} onClick={onToggleFavorite}>
-        {isFavorite ? <HeartIconGreen className={styles.icon} /> : <HeartIcon className={styles.icon} />}
-      </button>
+      <button
+  type="button"
+  className={`${styles.favoriteBtn} ${isFavorite ? styles.isActive : ''}`}
+  onClick={onToggleFavorite}
+>
+  {isFavorite ? (
+    <HeartIconGreen className={styles.icon} />
+  ) : (
+    <>
+      <HeartIcon className={`${styles.icon} ${styles.base}`} />
+      {/* зелёную используем как накладку и красим в чёрный через CSS */}
+      <HeartIconGreen className={`${styles.icon} ${styles.hover}`} />
+    </>
+  )}
+</button>
 
-      <button className={styles.addToCart} onClick={onAddToCart}>
-        {isInCart ? <CartIconGreen className={styles.icon} /> : <CartIcon className={styles.icon} />}
-      </button>
+      <button
+  type="button"
+  className={`${styles.addToCart} ${isInCart ? styles.isActive : ''}`}  // + добавили isActive
+  onClick={onAddToCart}
+>
+  {isInCart ? (
+    <CartIconGreen className={styles.icon} />
+  ) : (
+    <>
+      <CartIcon className={`${styles.icon} ${styles.base}`} />
+      {/* накладка: используем зелёную заливку и перекрашиваем в чёрный через CSS */}
+      <CartIconGreen className={`${styles.icon} ${styles.hover}`} />
+    </>
+  )}
+</button>
 
       <img src={imgSrc} alt={title} className={styles.productImg} onClick={onClick} />
 

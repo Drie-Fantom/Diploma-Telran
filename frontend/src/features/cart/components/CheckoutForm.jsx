@@ -1,16 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { clearCart } from '@redux/slices/cartSlice.js';
 import styles from './CheckoutForm.module.css';
 
-const CheckoutForm = ({ items }) => {
+const CheckoutForm = ({ items, totalPrice, onSuccess }) => { 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     data.name = data.name.trim(); 
     localStorage.setItem('orderData', JSON.stringify(data));
-    dispatch(clearCart());
+    onSuccess(); 
     reset();
   };
 

@@ -115,6 +115,14 @@
 /* Активное состояние — когда товар уже в избранном */
 .favBtn_active {
   background-image: url('@assets/icons/heart_green.svg');
+  filter: none;
+}
+
+/* подмена на залитое + фильтр в чёрный */
+.favBtn:not(.favBtn_active):hover,
+.favBtn:not(.favBtn_active):focus-visible {
+  background-image: url('@assets/icons/heart_green.svg');
+  filter: grayscale(1) brightness(0); /* даёт чёрный */
 }
 
 /* Текстовый блок */

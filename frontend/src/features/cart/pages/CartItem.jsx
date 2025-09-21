@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CartItem.module.css';
+import { X } from "lucide-react";
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3333';
@@ -14,7 +15,7 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
       <div className={styles.itemInfo}>
         <div className={styles.header}>
           <h2 className={styles.title}>{item.title}</h2>
-          <button className={styles.removeBtn} onClick={() => onRemove(item.id)}>X</button>
+          <button className={styles.removeBtn} onClick={()=>onRemove(item.id)} aria-label="Remove"><X size={20}/></button>
         </div>
         <div className={styles.controls}>
           <div className={styles.quantity}>

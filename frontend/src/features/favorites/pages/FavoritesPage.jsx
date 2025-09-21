@@ -6,7 +6,7 @@ import { selectFavoriteIds } from '@redux/slices/favoritesSlice.js';
 import { fetchProducts } from '@redux/slices/productSlice.js';
 import styles from '@features/products/pages/ProductsPage.module.css';
 import TitleList from "@common/components/ui/title/TitleList.jsx";
-import SkeletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
+import SceletonGrid from '@common/components/ui/sceleton/SceletonGrid.jsx';
 
 export default function FavoritesPage() {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export default function FavoritesPage() {
       <TitleList title={`Liked products`} />
       <div className={styles.productGrid}>
         {isFirstLoad
-          ? <SkeletonGrid count={Math.min(favoriteIds.length, 12)} />
+          ? <SceletonGrid count={Math.min(favoriteIds.length, 12)} />
           : favoriteProducts.map(prod => <ProductCard key={prod.id} product={prod} />) // Render only favorite products
         }
       </div>
