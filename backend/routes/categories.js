@@ -10,13 +10,7 @@ router.get('/all', async (_req, res) => {
     const rows = await Category.findAll();
     // На всякий случай сериализуем
     const data = rows.map(r => (typeof r.toJSON === 'function' ? r.toJSON() : r));
-    return res.json({
-  category,
-  data,
-  items: data,
-  products: data,
-  count: data.length
-});
+    return res.json(data);
   } catch (err) {
     console.error('GET /categories/all error:', err);
     return res.status(500).json({ status: 'ERR', message: 'Internal Server Error' });
