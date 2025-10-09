@@ -7,7 +7,7 @@ import './Breadcrumbs.scss';
 const Breadcrumbs = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const categories = useSelector(selectCategoryItems);
+  const { items: categories } = useSelector(state => state.categories);
   const { current: product } = useSelector(state => state.products);
 
   useEffect(() => {

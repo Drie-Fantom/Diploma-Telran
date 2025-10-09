@@ -18,8 +18,7 @@ const categorySlice = createSlice({
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.items = action.payload?.items ?? [];
-        state.count = action.payload?.count ?? state.items.length;
+        state.items = action.payload;
       })
       .addCase(fetchCategories.rejected, (state, action) => {
         state.status = 'failed';
@@ -27,9 +26,5 @@ const categorySlice = createSlice({
       });
   }
 });
-// src/redux/slices/categorySlice.js
-export const selectCategoriesState = s => s.categories;
-export const selectCategoryItems  = s => Array.isArray(s.categories.items) ? s.categories.items : [];
-export const selectCategoryCount  = s => s.categories.count ?? 0;
 
 export default categorySlice.reducer;
