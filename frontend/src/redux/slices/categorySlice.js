@@ -27,5 +27,9 @@ const categorySlice = createSlice({
       });
   }
 });
+// src/redux/slices/categorySlice.js
+export const selectCategoriesState = s => s.categories;
+export const selectCategoryItems  = s => Array.isArray(s.categories.items) ? s.categories.items : [];
+export const selectCategoryCount  = s => s.categories.count ?? 0;
 
 export default categorySlice.reducer;

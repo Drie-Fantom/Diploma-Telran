@@ -13,7 +13,7 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { items, status } = useSelector(state => state.products);
-  const { items: categories } = useSelector(state => state.categories);
+  const categories = useSelector(selectCategoryItems);
 
   const [params, setParams] = useState({
     minPrice: '',
@@ -64,11 +64,13 @@ const ProductsPage = () => {
     filteredSortedItems.sort((a, b) => b.title.localeCompare(a.title));
   }
 
-  let pageTitle = 'Products';
-  if (id) {
-    const cat = categories.find(c => c.id === Number(id));
-    pageTitle = cat ? cat.title : 'Products';
-  }
+let pageTitle = 'Products';
+
+if (id) {
+  const list = Array.isArray(categories) ? categories : []; // защита
+  const cat = list.find(c => c.id === Number(id));
+  pageTitle = cat ? cat.title : 'Products';
+}
 
   return (
     <div className={styles.product}>
