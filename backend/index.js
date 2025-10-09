@@ -34,17 +34,16 @@ app.get('/health', (_, res) => res.status(200).send('ok'));
 // --- Статика (опционально) ---
 // если положишь что-то в backend/public → оно будет доступно как файлы
 // app.use(express.static('public'));
-// --- Статика (отдаём <repo-root>/public) ---
-const STATIC_ROOT = path.resolve(__dirname, '..', 'public');
-// для контроля пути в логах Render:
+
+const STATIC_ROOT = path.join(__dirname, 'public');
 console.log('Static root:', STATIC_ROOT);
 
-// Явные алиасы под пути, которые приходят из БД: /product_img/... и /category_img/...
 app.use('/product_img',  express.static(path.join(STATIC_ROOT, 'product_img')));
 app.use('/category_img', express.static(path.join(STATIC_ROOT, 'category_img')));
 
-// (необязательно) можно отдать всю public
+// (опционально) отдать всю public
 app.use(express.static(STATIC_ROOT));
+
 
 // --- Подключение роутов ---
 // здесь твои основные endpoints
