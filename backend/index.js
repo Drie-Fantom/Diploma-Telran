@@ -31,14 +31,7 @@ app.get('/health', (_, res) => res.status(200).send('ok'));
 
 // --- Статика (опционально) ---
 // если положишь что-то в backend/public → оно будет доступно как файлы
-// app.use(express.static('public'));
-const path = require('path');
-const STATIC_ROOT = path.resolve(__dirname, '..', 'public'); // <repo-root>/public
-console.log('Static root:', STATIC_ROOT);
-app.use('/product_img',  express.static(path.join(STATIC_ROOT, 'product_img')));
-app.use('/category_img', express.static(path.join(STATIC_ROOT, 'category_img')));
-// опционально: отдать всю public
-app.use(express.static(STATIC_ROOT));
+app.use(express.static('public'));
 
 // --- Подключение роутов ---
 // здесь твои основные endpoints
