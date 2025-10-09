@@ -1,4 +1,6 @@
 require('dotenv').config();  // для работы с .env файлами
+const path = require('path');
+
 const express = require('express');      // фреймворк для сервера
 const cors = require('cors');            // библиотека для CORS (чтобы фронт мог обращаться к бэку)
 const categories = require('./routes/categories');  // роут для категорий
@@ -31,7 +33,18 @@ app.get('/health', (_, res) => res.status(200).send('ok'));
 
 // --- Статика (опционально) ---
 // если положишь что-то в backend/public → оно будет доступно как файлы
-app.use(express.static('public'));
+// app.use(express.static('public'));
+// --- Статика (отдаём <repo-root>/public) ---
+const STATIC_ROOT = path.resolve(__dirname, '..', 'public');
+// для контроля пути в логах Render:
+console.log('Static root:', STATIC_ROOT);
+
+// Явные алиасы под пути, которые приходят из БД: /product_img/... и /category_img/...
+app.use('/product_img',  express.static(path.join(STATIC_ROOT, 'product_img')));
+app.use('/category_img', express.static(path.join(STATIC_ROOT, 'category_img')));
+
+// (необязательно) можно отдать всю public
+app.use(express.static(STATIC_ROOT));
 
 // --- Подключение роутов ---
 // здесь твои основные endpoints
