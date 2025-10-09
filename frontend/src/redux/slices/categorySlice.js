@@ -2,9 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@api/axios.js';
 
 export const fetchCategories = createAsyncThunk('categories/fetch', async () => {
+  // const { data } = await api.get('/categories/all');
+  // console.log('API response:', data); 
+  // return data;
   const { data } = await api.get('/categories/all');
-  console.log('API response:', data); 
-  return data;
+  // Приводим к массиву на случай разных форматов
+  const list = Array.isArray(data) ? data : (Array.isArray(data?.items) ? data.items : []);
+  return list;
 });
 
 const categorySlice = createSlice({
